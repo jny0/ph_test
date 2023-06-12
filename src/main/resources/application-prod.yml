@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: lldjlocal
+    password: 1234
+    url: jdbc:mysql://localhost:3306/placehub__prod?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/
+    devtools:
+      livereload:
+        enabled: true
+      restart:
+        enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true

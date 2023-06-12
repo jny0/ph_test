@@ -1,0 +1,37 @@
+<header th:fragment="headerFragment" class="bg-gray-800">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between py-4">
+            <div>
+                <a href="/" id="SecondFont" class="text-2xl font-bold" style="color: #FFEF83">PlaceHub</a>
+            </div>
+            <div class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li th:if="${@rq.logout}" class="flex gap-4">
+                        <a href="/" class="text-white hover:text-yellow-300">홈</a>
+                        <a href="/map" class="text-white hover:text-yellow-300">지도</a>
+                        <a href="/place/search?longitude=-1&latitude=-1" class="text-white hover:text-yellow-300">큐레이션</a>
+                        <a href="/member/join" class="text-white hover:text-yellow-300">회원가입</a>
+                        <a href="/member/login" class="text-white hover:text-yellow-300">로그인</a>
+                    </li>
+                    <li th:if="${@rq.login}" class="flex gap-4">
+                        <a href="/" class="text-white hover:text-yellow-300">홈</a>
+                        <a href="/map" class="text-white hover:text-yellow-300">지도</a>
+                        <a href="/place/search?longitude=-1&latitude=-1" class="text-white hover:text-yellow-300">큐레이션</a>
+                        <a href="/member/me" class="text-white hover:text-yellow-300">내정보</a>
+                        <a href="/member/page/me" class="text-white hover:text-yellow-300">마이페이지</a>
+                        <a href="/post/list" class="text-white hover:text-yellow-300">글목록</a>
+                        <a href="javascript:;" onclick="$(this).next().submit();" class="text-white hover:text-yellow-300">로그아웃</a>
+                        <form th:action="|/member/logout|" method="POST"></form>
+                    </li>
+                </ul>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-400 hover:text-white focus:outline-none">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
